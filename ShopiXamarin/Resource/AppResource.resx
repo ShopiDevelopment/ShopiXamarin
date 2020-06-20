@@ -24,4 +24,13 @@
     <data name="GenericErrorText" xml:space="preserve">
         <value>Something went wrong!</value>
     </data>
+    <data name="Home" xml:space="preserve">
+        <value>Home</value>
+    </data>
+    <data name="ShoppingBag" xml:space="preserve">
+        <value>Shopping Bag</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>Profile</value>
+    </data>
 </root>

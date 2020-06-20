@@ -24,6 +24,7 @@
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -34,6 +35,12 @@
     <Folder Include="Resource\" />
     <Folder Include="ViewModels\Authentication\" />
     <Folder Include="Views\Authentication\" />
+    <Folder Include="Views\Catalog\" />
+    <Folder Include="Views\Bag\" />
+    <Folder Include="Views\Profile\" />
+    <Folder Include="ViewModels\Catalog\" />
+    <Folder Include="ViewModels\Bag\" />
+    <Folder Include="ViewModels\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource\AppResource.resx">
@@ -45,5 +52,9 @@
     <Compile Update="Resource\AppResource.Designer.cs">
       <DependentUpon>AppResource.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_ShopiXamarin.Data\_ShopiXamarin.Data.csproj" />
+    <ProjectReference Include="..\_ShopiXamarin.Utils\_ShopiXamarin.Utils.csproj" />
   </ItemGroup>
 </Project>

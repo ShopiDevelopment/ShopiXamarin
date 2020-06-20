@@ -1,4 +1,5 @@
 ﻿using System;
+using ShopiXamarin.Services.Contracts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace ShopiXamarin
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            AppContainer.RegisterDependencies();
+            AppContainer.Resolve<INavigationService>().InitializeAsync(false);
         }
 
         protected override void OnStart()

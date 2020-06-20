@@ -70,5 +70,23 @@ namespace ShopiXamarin.Resource {
                 return ResourceManager.GetString("GenericErrorText", resourceCulture);
             }
         }
+        
+        internal static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        internal static string ShoppingBag {
+            get {
+                return ResourceManager.GetString("ShoppingBag", resourceCulture);
+            }
+        }
+        
+        internal static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
     }
 }

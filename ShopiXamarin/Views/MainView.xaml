@@ -1,16 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShopiXamarin.Views.MainView">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:res="clr-namespace:ShopiXamarin.Resource"
+            xmlns:catalogViews="clr-namespace:ShopiXamarin.Views.Catalog"
+            xmlns:bagViews="clr-namespace:ShopiXamarin.Views.Bag"
+            xmlns:profileViews="clr-namespace:ShopiXamarin.Views.Profile"
+            x:Class="ShopiXamarin.Views.MainView">
     <TabbedPage.Children>
-        <NavigationPage>
-
+        <NavigationPage IconImageSource="home" Title="{x:Static res:AppResource.Home}">
+            <x:Arguments>
+                <catalogViews:HomeView/>
+            </x:Arguments>
         </NavigationPage>
-        <NavigationPage>
-
+        <NavigationPage IconImageSource="bag" Title="{x:Static res:AppResource.ShoppingBag}">
+            <x:Arguments>
+                <bagViews:ShoppingBagView/>
+            </x:Arguments>
         </NavigationPage>
-        <NavigationPage>
-
+        <NavigationPage IconImageSource="profile" Title="{x:Static res:AppResource.Profile}">
+            <x:Arguments>
+                <profileViews:ProfileView/>
+            </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>

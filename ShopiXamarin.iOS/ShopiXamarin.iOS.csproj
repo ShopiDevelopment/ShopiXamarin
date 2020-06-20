@@ -133,4 +133,15 @@
       <Name>ShopiXamarin</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bag.png" />
+    <BundleResource Include="Resources\bag%402x.png" />
+    <BundleResource Include="Resources\bag%403x.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\profile.png" />
+    <BundleResource Include="Resources\profile%402x.png" />
+    <BundleResource Include="Resources\profile%403x.png" />
+  </ItemGroup>
 </Project>
