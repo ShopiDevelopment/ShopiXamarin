@@ -4,35 +4,82 @@ using System.Threading.Tasks;
 using ShopiXamarin.Services.Contracts;
 using ShopiXamarin.ViewModels.Base;
 using Newtonsoft.Json;
+using ShopiXamarin.Models;
+using ShopiXamarin.Utils;
+using _ShopiXamarin.Network;
+using _ShopiXamarin.Data;
+using AutoMapper;
+using _ShopiXamarin.Data.Responses;
 
 namespace ShopiXamarin.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private const string LoginApi = "{0}/customer/login";
-        private const string ForgotPasswordApi = "{0}/customer/forgetPassword";
+        private const string GetUserEP = "https://run.mocky.io/v3/860602ad-6ac8-4ed5-bbdf-b0d1d5666aac";
         private readonly IAnalyticService _analyticService;
-        private bool _isUserAutheticated;
-        public AuthenticationService(IAnalyticService analyticService)
+        private readonly ISettingsService _settingsService;
+        private readonly IOperations _operations;
+        
+        public AuthenticationService(IAnalyticService analyticService,
+                                     ISettingsService settingsService,
+                                     IOperations operations)
         {
             _analyticService = analyticService;
+            _settingsService = settingsService;
+            _operations = operations;
+            var userJson = _settingsService.GetItem(Constants.SettingKeys.UserSettingKey);
+            if (!string.IsNullOrEmpty(userJson))
+            {
+                try
+                {
+                    User = JsonConvert.DeserializeObject<UserModel>(userJson);
+                    _analyticService.Init(User.Email, User.Id.ToString());
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
         }
 
         public bool IsUserAutheticated()
         {
-            return _isUserAutheticated;
+            return _user != null;
         }
 
-        public Task<bool> AutheticateAsync(string userName, string password, CancellationToken cancellationToken)
+        private UserModel _user;
+        private UserModel User
         {
-            _analyticService.LoginAttempted(userName);
-            _isUserAutheticated = true;
-            return Task.FromResult(_isUserAutheticated);
+            get => _user;
+            set
+            {
+                _user = value;
+                _settingsService.AddItem(Constants.SettingKeys.UserSettingKey, JsonConvert.SerializeObject(value));
+            }
+        }
+
+        public async Task<bool> AutheticateAsync(string email, string password, CancellationToken cancellationToken)
+        {
+            _analyticService.LoginAttempted(email);
+            try
+            {
+                var response = await _operations.GetResponse<UserResponse>(GetUserEP, cancellationToken);
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<User, UserModel>();
+                });
+                IMapper iMapper = config.CreateMapper();
+                User = iMapper.Map<User, UserModel>(response.User);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool Logout()
         {
-            _isUserAutheticated = false;
+            User = null;
             return true;
         }
     }

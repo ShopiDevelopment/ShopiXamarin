@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ShopiXamarin.ViewModels.Bag;
 using Xamarin.Forms;
 
 namespace ShopiXamarin.Views.Bag
@@ -10,6 +10,7 @@ namespace ShopiXamarin.Views.Bag
         public ShoppingBagView()
         {
             InitializeComponent();
+            this.BindingContext = AppContainer.Resolve<ShoppingBagViewModel>();
         }
     }
 }

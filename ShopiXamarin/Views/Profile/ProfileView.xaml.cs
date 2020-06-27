@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ShopiXamarin.ViewModels.Profile;
 using Xamarin.Forms;
 
 namespace ShopiXamarin.Views.Profile
@@ -10,6 +10,7 @@ namespace ShopiXamarin.Views.Profile
         public ProfileView()
         {
             InitializeComponent();
+            this.BindingContext = AppContainer.Resolve<ProfileViewModel>();
         }
     }
 }

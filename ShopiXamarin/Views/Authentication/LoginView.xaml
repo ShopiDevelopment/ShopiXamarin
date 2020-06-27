@@ -1,10 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:behaviours="clr-namespace:ShopiXamarin.Behaviors"
              x:Class="ShopiXamarin.Views.Authentication.LoginView">
     <ContentPage.Content>
-        <Grid>
-
+        <Grid
+            BackgroundColor="{StaticResource BlueBerry}">
+            <StackLayout
+                Spacing="20"
+                WidthRequest="250"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image
+                    Source="shopi"/>
+                <Entry
+                    HeightRequest="50"
+                    Placeholder="Email"
+                    BackgroundColor="{Binding Email.BackgroundColor}"
+                    TextColor="{Binding Email.TextColor}"
+                    Text="{Binding Email.Value}">
+                    <Entry.Behaviors>
+                        <behaviours:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValueChangedCommand}" CommandParameter="{Binding Email}"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry
+                    HeightRequest="50"
+                    Placeholder="Password"
+                    IsPassword="True"
+                    BackgroundColor="{Binding Password.BackgroundColor}"
+                    TextColor="{Binding Password.TextColor}"
+                    Text="{Binding Password.Value}">
+                    <Entry.Behaviors>
+                        <behaviours:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValueChangedCommand}" CommandParameter="{Binding Password}"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Button
+                    IsEnabled="{Binding IsLoginEnabled}"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    Text="Login"
+                    TextColor="Black"
+                    Command="{Binding LoginCommand}"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

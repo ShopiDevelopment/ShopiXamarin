@@ -1,4 +1,5 @@
 ﻿using System;
+using _ShopiXamarin.Network;
 using Autofac;
 using ShopiXamarin.Services;
 using ShopiXamarin.Services.Contracts;
@@ -32,7 +33,7 @@ namespace ShopiXamarin
             //builder.RegisterInstance(DependencyService.Get<IUtilities>()).As<IUtilities>().SingleInstance();
             
             //General
-            //builder.RegisterType<Operations>().As<IOperations>().SingleInstance();
+            builder.RegisterType<Operations>().As<IOperations>().SingleInstance();
             DependencyEngine.Initialize(builder.Build());
         }
 

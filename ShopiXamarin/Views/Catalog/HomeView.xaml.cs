@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ShopiXamarin.ViewModels.Catalog;
 using Xamarin.Forms;
 
 namespace ShopiXamarin.Views.Catalog
@@ -10,6 +10,7 @@ namespace ShopiXamarin.Views.Catalog
         public HomeView()
         {
             InitializeComponent();
+            this.BindingContext = AppContainer.Resolve<HomeViewModel>();
         }
     }
 }
