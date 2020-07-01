@@ -1,5 +1,6 @@
 ﻿using System;
 using ShopiXamarin.Services.Contracts;
+using ShopiXamarin.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +12,7 @@ namespace ShopiXamarin
         {
             InitializeComponent();
             AppContainer.RegisterDependencies();
+            AutoMapperConfiguration.Init();
             AppContainer.Resolve<INavigationService>().InitializeAsync(false);
         }
 

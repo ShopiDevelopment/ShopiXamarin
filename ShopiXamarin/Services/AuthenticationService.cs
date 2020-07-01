@@ -64,14 +64,10 @@ namespace ShopiXamarin.Services
             try
             {
                 var response = await _operations.GetResponse<UserResponse>(GetUserEP, cancellationToken);
-                var config = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<User, UserModel>();
-                });
-                IMapper iMapper = config.CreateMapper();
-                User = iMapper.Map<User, UserModel>(response.User);
+                User = response.User.ToModel();
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }
