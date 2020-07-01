@@ -29,14 +29,11 @@ namespace ShopiXamarin.Utils
         /// <summary>
         /// Mapper
         /// </summary>
+        private static IMapper _mapper;
         public static IMapper Mapper
         {
-            get
-            {
-                return _mapper;
-            }
+            get => _mapper;
         }
-        private static IMapper _mapper;
 
         /// <summary>
         /// Initialize mapper
@@ -47,7 +44,6 @@ namespace ShopiXamarin.Utils
 
             var _mapperConfiguration = new MapperConfiguration(amc.GetConfiguration());
 
-            
             _mapper = _mapperConfiguration.CreateMapper();
         }
     }

@@ -67,7 +67,7 @@ namespace ShopiXamarin.Services
                 User = response.User.ToModel();
                 return true;
             }
-            catch(Exception ex)
+            catch
             {
                 return false;
             }
