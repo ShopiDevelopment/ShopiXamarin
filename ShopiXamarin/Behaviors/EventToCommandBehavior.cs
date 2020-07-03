@@ -113,7 +113,7 @@ namespace ShopiXamarin.Behaviors
 
             var parameter = CommandParameter;
 
-            if (eventArgs != null && eventArgs != EventArgs.Empty)
+            if (parameter == null && eventArgs != null && eventArgs != EventArgs.Empty)
             {
                 parameter = eventArgs;
 

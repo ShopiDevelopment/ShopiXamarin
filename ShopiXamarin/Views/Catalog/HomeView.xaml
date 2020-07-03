@@ -2,10 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
+             xmlns:res="clr-namespace:ShopiXamarin.Resource"
              x:Class="ShopiXamarin.Views.Catalog.HomeView">
     <ContentPage.Content>
         <Grid>
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid
+                BackgroundColor="{StaticResource BlueBerry}">
+                <StackLayout
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Text="{x:Static res:AppResource.WelcomeText}"/>
+                </StackLayout>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

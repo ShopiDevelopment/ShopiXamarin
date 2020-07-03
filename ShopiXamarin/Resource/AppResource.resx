@@ -33,4 +33,16 @@
     <data name="Profile" xml:space="preserve">
         <value>Profile</value>
     </data>
+    <data name="WelcomeText" xml:space="preserve">
+        <value>Welcome to ShopiXamarin</value>
+    </data>
+    <data name="EmailCanNotBeEmpty" xml:space="preserve">
+        <value>Email can not be empty</value>
+    </data>
+    <data name="EmailIsNotValid" xml:space="preserve">
+        <value>Email is not valid</value>
+    </data>
+    <data name="PasswordCanNotBeEmpty" xml:space="preserve">
+        <value>Password can not be empty</value>
+    </data>
 </root>

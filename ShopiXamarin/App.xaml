@@ -7,12 +7,18 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="BlueBerry">#3f46ad</Color>
+            <Color x:Key="BlueBerry90">#E63f46ad</Color>
 
             <Color x:Key="ValidInputBackground">#e8f0fe</Color>
             <Color x:Key="InValidInputBackground">#ffd1d1</Color>
             <Color x:Key="ValidInputBorder">#000000</Color>
             <Color x:Key="InValidInputBorder">#ff0000</Color>
             <Color x:Key="DisabledInputBorder">#d9d9d9</Color>
+
+            <Style TargetType="Grid" ApplyToDerivedTypes="True">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

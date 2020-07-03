@@ -5,7 +5,7 @@
              x:Class="ShopiXamarin.Views.Bag.ShoppingBagView">
     <ContentPage.Content>
         <Grid>
-
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

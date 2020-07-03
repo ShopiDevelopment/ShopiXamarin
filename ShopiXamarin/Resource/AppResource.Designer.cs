@@ -88,5 +88,29 @@ namespace ShopiXamarin.Resource {
                 return ResourceManager.GetString("Profile", resourceCulture);
             }
         }
+        
+        internal static string WelcomeText {
+            get {
+                return ResourceManager.GetString("WelcomeText", resourceCulture);
+            }
+        }
+        
+        internal static string EmailCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("EmailCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        internal static string EmailIsNotValid {
+            get {
+                return ResourceManager.GetString("EmailIsNotValid", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("PasswordCanNotBeEmpty", resourceCulture);
+            }
+        }
     }
 }

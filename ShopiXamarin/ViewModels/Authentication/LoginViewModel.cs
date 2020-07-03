@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using ShopiXamarin.Resource;
 using ShopiXamarin.Services.Contracts;
 using ShopiXamarin.Validations;
 using ShopiXamarin.ViewModels.Base;
@@ -14,9 +15,8 @@ namespace ShopiXamarin.ViewModels.Authentication
         public LoginViewModel(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
-            Email.Validations.Add(new IsNotNullOrEmptyRule<string>());
-            Email.Validations.Add(new IsEmailValideRule<string>());
-            Password.Validations.Add(new IsNotNullOrEmptyRule<string>());
+            Email.Validations.Add(new IsEmailValideRule<string> { ValidationMessage = AppResource.EmailIsNotValid });
+            Password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = AppResource.PasswordCanNotBeEmpty });
         }
 
         private ValidatableObject<string> _email = new ValidatableObject<string>();

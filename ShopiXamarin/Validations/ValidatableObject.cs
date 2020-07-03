@@ -19,7 +19,12 @@ namespace ShopiXamarin.Validations
             set => SetProperty(ref _errors, value);
         }
 
-        public string ErrorText { get; private set; }
+        private string _errorText;
+        public string ErrorText
+        {
+            get => _errorText;
+            set => SetProperty(ref _errorText, value);
+        }
 
         private T _value;
         public T Value
@@ -56,7 +61,7 @@ namespace ShopiXamarin.Validations
 
 			Errors = errors.ToList();
             ErrorText = string.Empty;
-            Errors.ForEach(s => ErrorText += s + " ");
+            ErrorText = Errors.FirstOrDefault();
             IsValid = !Errors.Any();
             OnPropertyChanged("BackgroundColor");
             OnPropertyChanged("BorderColor");
@@ -70,11 +75,11 @@ namespace ShopiXamarin.Validations
             {
                 if (!IsEnabled)
                 {
-                    return Color.Transparent;
+                    return Color.White;
                 }
                 if (_validateLock)
                 {
-                    return Color.Transparent;
+                    return Color.White;
                 }
                 if (IsValid)
                 {

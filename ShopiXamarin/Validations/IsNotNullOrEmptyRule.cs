@@ -4,8 +4,6 @@
     {
         public string ValidationMessage { get; set; }
 
-        public int Priority { get; set; }
-
         public bool Check(T value)
         {
             if (value == null)
