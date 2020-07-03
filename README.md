@@ -72,3 +72,5 @@ App.Xaml file
   </Application.Resources>
 </Application>
 ```
+## AutoMapper
+TODO
